@@ -1,6 +1,8 @@
 # ETCD Store and browser
 
-This Repo also contains the ETCD-Browser and Store container where you can visualize your etcd store at http://localhost:8080
+This Repo also contains the ETCD-Browser and Store container where you can visualize your etcd store at http://localhost:49502
+ETCD Port: 49501
+ETCD-BROWSER Port: 49502
 
 ## How to Use:
 1. Start Containers:
@@ -10,23 +12,15 @@ This Repo also contains the ETCD-Browser and Store container where you can visua
 
 2. Check ETCD/Application
 
-		- Visit http://localhost:8080
-		(You should see an entry called "Example1" with Name, Icon and Desc Values)
-		- Visit http://localhost:3000
-		(You should see a simple webpage from the example application)
+		- Visit http://localhost:49502
+		- Enter correct ETCD Host (e.g. http://localhost:49501)
 
-3. Verify (Optional)
-	
-		Kill the Example Application and Check ETCD again to verify that the Example Application is not registrated anymore
-		- docker ps  (get container_ID of Example application)
-		- docker stop "container_ID"
-		- Visit http://localhost:8080
 
 ## Explanation
 
 - docker-compose.yml 
 
-		Contains ETCD, ETCD-Browser and Example Application docker containers
-- etcd-browser/
+		Contains ETCD, ETCD-Browser
+- Platform Sidecars/etcd-browser/
 		
-		This directory contains the ETCD-Browser Container where you can visualize your etcd store
+		This directory contains the ETCD-Browser container where you can visualize your etcd store
