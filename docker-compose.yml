@@ -1,7 +1,7 @@
 version: '3'
 services:
   etcdbrowser:
-    build: ./etcd-browser/
+    build: ./Platform Sidecars/etcd-browser/
     ports:
       - "49502:49502"
   etcd:

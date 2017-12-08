@@ -30,7 +30,3 @@ This Repo also contains the ETCD-Browser and Store container where you can visua
 - etcd-browser/
 		
 		This directory contains the ETCD-Browser Container where you can visualize your etcd store
-
-- example/Dockerfile
-
-		Describes a simple Node:boron Docker Container which executes the sidecar script at startup
