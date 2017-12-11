@@ -43,8 +43,7 @@ paths:
       parameters:
       - name: "recursive"
         in: "query"
-        description: "Specifies if all the sub-keys/properties should be contained\
-          \ in the response"
+        description: "Specifies if all the sub-keys/properties should be deleted"
         required: false
         type: "boolean"
       responses:
