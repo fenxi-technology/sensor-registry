@@ -1,7 +1,7 @@
 ---
 swagger: "2.0"
 info:
-  description: "This is a simple API description for the ScaleIT app registry\nCheck\
+  description: "This is a simple API description for the ScaleIT app registry\n* Check\
     \ the [etcd](https://coreos.com/etcd/docs/latest/v2/api.html) api description\
     \ for further information\n"
   version: "1.0.0"
@@ -25,7 +25,13 @@ paths:
     get:
       tags:
       - "App Registration"
-      parameters: []
+      parameters:
+      - name: "recursive"
+        in: "query"
+        description: "Specifies if all the sub-keys/properties should be contained\
+          \ in the response"
+        required: false
+        type: "boolean"
       responses:
         200:
           description: "Returns all applications with all its properties. ?recursive=true\
@@ -34,7 +40,13 @@ paths:
       tags:
       - "App Registration"
       summary: "Delete a all Apps"
-      parameters: []
+      parameters:
+      - name: "recursive"
+        in: "query"
+        description: "Specifies if all the sub-keys/properties should be contained\
+          \ in the response"
+        required: false
+        type: "boolean"
       responses:
         200:
           description: "Successfull operation"
