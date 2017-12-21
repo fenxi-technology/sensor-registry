@@ -1,8 +1,8 @@
 ---
 swagger: "2.0"
 info:
-  description: "TEST 123 This is a simple API description for the ScaleIT app registry\n\
-    * Check the [etcd](https://coreos.com/etcd/docs/latest/v2/api.html) api description\
+  description: "This is a simple API description for the ScaleIT app registry\n* Check\
+    \ the [etcd](https://coreos.com/etcd/docs/latest/v2/api.html) api description\
     \ for further information\n"
   version: "1.0.0"
   title: "ScaleIT-ORG ETCD Store"
