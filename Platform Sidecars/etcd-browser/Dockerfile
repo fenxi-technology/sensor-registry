@@ -3,12 +3,11 @@ FROM ubuntu:14.04
 MAINTAINER Christoph Wiechert <wio@psitrax.de>
 MAINTAINER https://github.com/henszey
 
-RUN apt-get update
+RUN apt-get update && apt-get install -y nodejs
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get install -y nodejs
 
 RUN mkdir /app
-ADD . /app/
+COPY . /app/
 
 WORKDIR /app
 EXPOSE 49502
