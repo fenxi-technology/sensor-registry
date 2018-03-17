@@ -110,6 +110,9 @@ function proxy(client_req, client_res) {
   }, {end: true}));
 }
 
+process.on('uncaughtException', function (err) {
+    console.log(err);
+}); 
 
 function auth(req, res) {
   if(!authUser) return true;
