@@ -1,4 +1,3 @@
-
 # etcd browser
 
 ## Demo
@@ -12,22 +11,30 @@
 
 ## To build/run as a Docker container:
 
-(adjust options as necessary - to run it as a daemon, remove "--rm", "-t", "-i" and add "-D")
+    docker run --rm --name etcd-browser -p 0.0.0.0:8080:8080 --env ETCD_BROWSER_CONFIG=/app/config.yaml -v config.yaml:/app/config.yaml woosley/etcd-browser
 
-    cd <repository>
-    sudo docker build -t etcd-browser .
-    sudo docker run --rm --name etcd-browser -p 0.0.0.0:8000:8000 --env ETCD_HOST=10.10.0.1 --env AUTH_PASS=doe -t -i etcd-browser
+## Using docker-compose
+
+Startup a demo of etcd&etcd-browser locally by running
+
+```
+docker-compose up
+```
 
 ### Configuration
-You can configure the builtin server using environment variables:
 
- * AUTH_USER: Username for http basic auth (skip to disable auth)
- * AUTH_PASS: Password for http basic auth
- * ETCD_HOST: IP of the etcd host the internal proxy should use [172.17.42.1]
- * ETCD_PORT: Port of the etcd daemon [4001]
- * SERVER_PORT: Port of builtin server
- 
-If you use a secured etcd:
- * ETCDCTL_CA_FILE
- * ETCDCTL_KEY_FILE
- * ETCDCTL_CERT_FILE
+Server side configuration reading from a yaml file, here is a sample
+
+```yaml
+listen: 8080
+instances:
+    etcd01:
+        base: http://localhost:2379/v2/keys/
+    etcd02:
+        verify_ssl: false
+        base: https://ssl_host:443/v2/keys/
+        auth: user:password
+```
+
+by default, configuration file is loaded from ./config.yaml, it can be override
+by environment variable `ETCD_BROWSER_CONFIG`

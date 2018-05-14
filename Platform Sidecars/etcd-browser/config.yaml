@@ -1,0 +1,6 @@
+---
+listen: 49502
+instances:
+    etcd01:
+        verify_ssl: false
+        base: http://etcd:49501/v2/keys/
