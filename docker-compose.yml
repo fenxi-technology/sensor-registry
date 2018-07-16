@@ -1,6 +1,7 @@
 version: '3'
 services:
   etcdbrowser:
+    image: spe-app-registry-etcd-browser
     build: ./Platform Sidecars/etcd-browser/
     ports:
       - "49502:49502"
