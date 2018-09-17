@@ -3,3 +3,6 @@ instances:
     etcd01:
         verify_ssl: false
         base: http://129.13.170.61:49501/v2/keys/
+    etcd02:
+        verify_ssl: false
+        base: http://etcd:49501/v2/keys/
