@@ -26,7 +26,7 @@ services:
       - VIRTUAL_HOST=sensor-registry.jit-systems.de # example jitcloud.de
       - LETSENCRYPT_HOST=sensor-registry.jit-systems.de # should be the same as VIRTUAL_HOST
       - LETSENCRYPT_EMAIL=frostyandy2k@yahoo.com # example webmaster@agentur-murr.de
-  networks:
+    networks:
       - nginx-proxy
 
   de-kit-sensor-temp1-registration:
@@ -44,8 +44,8 @@ services:
         - APP_DESCRIPTION=Sensor Manager
         - APP_CATEGORY=domainApp
         - APP_STATUS=online
-        - APP_ICON_URL=http://localhost:8081/images/TBS-1DSGT1006NE.png
-        - APP_USER_URL=http://localhost:8081/TBS-1DSGT1006NE
+        - APP_ICON_URL=${sensor-manager-url}/images/TBS-1DSGT1006NE.png
+        - APP_USER_URL=${sensor-manager-url}/TBS-1DSGT1006NE
         - APP_USER_DOC_URL=
         - APP_USER_STATUS_URL=
         - APP_DEV_DOC_URL=
@@ -74,8 +74,8 @@ services:
         - APP_DESCRIPTION=Sensor Manager
         - APP_CATEGORY=domainApp
         - APP_STATUS=online
-        - APP_ICON_URL=http://localhost:8081/images/w150.png
-        - APP_USER_URL=http://localhost:8081/w150
+        - APP_ICON_URL=${sensor-manager-url}/images/w150.png
+        - APP_USER_URL=${sensor-manager-url}/w150
         - APP_USER_DOC_URL=
         - APP_USER_STATUS_URL=
         - APP_DEV_DOC_URL=
@@ -104,8 +104,8 @@ services:
         - APP_DESCRIPTION=Sensor Manager
         - APP_CATEGORY=domainApp
         - APP_STATUS=online
-        - APP_ICON_URL=http://localhost:8081/images/inspectorp65x.png
-        - APP_USER_URL=http://localhost:8081/diameter
+        - APP_ICON_URL=${sensor-manager-url}/images/inspectorp65x.png
+        - APP_USER_URL=${sensor-manager-url}/diameter
         - APP_USER_DOC_URL=
         - APP_USER_STATUS_URL=
         - APP_DEV_DOC_URL=
@@ -134,8 +134,8 @@ services:
         - APP_DESCRIPTION=Sensor Manager
         - APP_CATEGORY=domainApp
         - APP_STATUS=online
-        - APP_ICON_URL=http://localhost:8081/images/s3000.png
-        - APP_USER_URL=http://localhost:8081/s3000
+        - APP_ICON_URL=${sensor-manager-url}/images/s3000.png
+        - APP_USER_URL=${sensor-manager-url}/s3000
         - APP_USER_DOC_URL=
         - APP_USER_STATUS_URL=
         - APP_DEV_DOC_URL=
@@ -164,8 +164,8 @@ services:
         - APP_DESCRIPTION=Sensor Manager
         - APP_CATEGORY=domainApp
         - APP_STATUS=online
-        - APP_ICON_URL=http://localhost:8081/images/c4000advanced.png
-        - APP_USER_URL=http://localhost:8081/c4000advanced
+        - APP_ICON_URL=${sensor-manager-url}/images/c4000advanced.png
+        - APP_USER_URL=${sensor-manager-url}/c4000advanced
         - APP_USER_DOC_URL=
         - APP_USER_STATUS_URL=
         - APP_DEV_DOC_URL=
@@ -194,8 +194,8 @@ services:
         - APP_DESCRIPTION=Sensor Manager
         - APP_CATEGORY=domainApp
         - APP_STATUS=online
-        - APP_ICON_URL=http://localhost:8081/images/c4000advanced.png
-        - APP_USER_URL=http://localhost:8081/c4000advanced
+        - APP_ICON_URL=${sensor-manager-url}/images/c4000advanced.png
+        - APP_USER_URL=${sensor-manager-url}/c4000advanced
         - APP_USER_DOC_URL=
         - APP_USER_STATUS_URL=
         - APP_DEV_DOC_URL=
@@ -224,8 +224,8 @@ services:
         - APP_DESCRIPTION=Sensor Manager
         - APP_CATEGORY=domainApp
         - APP_STATUS=online
-        - APP_ICON_URL=http://localhost:8081/images/sb30.png
-        - APP_USER_URL=http://localhost:8081/sb30
+        - APP_ICON_URL=${sensor-manager-url}/images/sb30.png
+        - APP_USER_URL=${sensor-manager-url}/sb30
         - APP_USER_DOC_URL=
         - APP_USER_STATUS_URL=
         - APP_DEV_DOC_URL=
@@ -254,8 +254,8 @@ services:
         - APP_DESCRIPTION=Sensor Manager
         - APP_CATEGORY=domainApp
         - APP_STATUS=online
-        - APP_ICON_URL=http://localhost:8081/images/inspectorp65x.png
-        - APP_USER_URL=http://localhost:8081/inspectorp65x
+        - APP_ICON_URL=${sensor-manager-url}/images/inspectorp65x.png
+        - APP_USER_URL=${sensor-manager-url}/inspectorp65x
         - APP_USER_DOC_URL=
         - APP_USER_STATUS_URL=
         - APP_DEV_DOC_URL=
