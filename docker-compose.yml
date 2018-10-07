@@ -1,10 +1,18 @@
 version: '3'
 services:
+
   etcdbrowser:
     image: spe-app-registry-etcd-browser
     build: ./Platform Sidecars/etcd-browser/
     ports:
       - "49502:49502"
+    environment:
+        - VIRTUAL_HOST=sensor-browser.jit-systems.de # example jitcloud.de
+        - LETSENCRYPT_HOST=sensor-browser.jit-systems.de # should be the same as VIRTUAL_HOST
+        - LETSENCRYPT_EMAIL=frostyandy2k@yahoo.com # example webmaster@agentur-murr.de
+    networks:
+        - nginx-proxy
+
   etcd:
     image: quay.io/coreos/etcd
     command:
@@ -15,3 +23,253 @@ services:
       - "49501:49501"
     environment:
       - ETCD_CORS=*
+      - VIRTUAL_HOST=sensor-registry.jit-systems.de # example jitcloud.de
+      - LETSENCRYPT_HOST=sensor-registry.jit-systems.de # should be the same as VIRTUAL_HOST
+      - LETSENCRYPT_EMAIL=frostyandy2k@yahoo.com # example webmaster@agentur-murr.de
+  networks:
+      - nginx-proxy
+
+  de-kit-sensor-temp1-registration:
+      image: de-kit-sidecar-registration:1.0
+      depends_on:
+        - "etcd"
+      environment:
+        - ETCD_IP=etcd
+        - ETCD_PORT=49501
+        - APP_PORT=8081
+        - APP_ID=tbs-temp-sensor
+        - APP_NAME=de-kit-sensor-manager
+        - APP_TITLE=TBS Temperature
+        - APP_SHORTDESCRIPTION=Sensor Manager
+        - APP_DESCRIPTION=Sensor Manager
+        - APP_CATEGORY=domainApp
+        - APP_STATUS=online
+        - APP_ICON_URL=http://localhost:8081/images/TBS-1DSGT1006NE.png
+        - APP_USER_URL=http://localhost:8081/TBS-1DSGT1006NE
+        - APP_USER_DOC_URL=
+        - APP_USER_STATUS_URL=
+        - APP_DEV_DOC_URL=
+        - APP_DEV_SWAGGER_URL=
+        - APP_ADMIN_URL=
+        - APP_ADMIN_CONFIG_URL=
+        - APP_ADMIN_DOC_URL=
+        - APP_ADMIN_LOG_URL=
+        - APP_ADMIN_STATUS_URL=
+        - APP_API_ENTRYPOINT=
+        - APP_UPDATED_AT=2018-10-03T13:32:16.581Z
+        - APP_TYPE=domainApp
+
+  de-kit-sensor-w150-registration:
+      image: de-kit-sidecar-registration:1.0
+      depends_on:
+        - "etcd"
+      environment:
+        - ETCD_IP=etcd
+        - ETCD_PORT=49501
+        - APP_PORT=8081
+        - APP_ID=w150-sensor
+        - APP_NAME=de-kit-sensor-manager
+        - APP_TITLE=W150 Proximity
+        - APP_SHORTDESCRIPTION=Sensor Manager
+        - APP_DESCRIPTION=Sensor Manager
+        - APP_CATEGORY=domainApp
+        - APP_STATUS=online
+        - APP_ICON_URL=http://localhost:8081/images/w150.png
+        - APP_USER_URL=http://localhost:8081/w150
+        - APP_USER_DOC_URL=
+        - APP_USER_STATUS_URL=
+        - APP_DEV_DOC_URL=
+        - APP_DEV_SWAGGER_URL=
+        - APP_ADMIN_URL=
+        - APP_ADMIN_CONFIG_URL=
+        - APP_ADMIN_DOC_URL=
+        - APP_ADMIN_LOG_URL=
+        - APP_ADMIN_STATUS_URL=
+        - APP_API_ENTRYPOINT=
+        - APP_UPDATED_AT=2018-10-03T13:32:16.581Z
+        - APP_TYPE=domainApp
+
+  de-kit-sensor-diameter-registration:
+      image: de-kit-sidecar-registration:1.0
+      depends_on:
+        - "etcd"
+      environment:
+        - ETCD_IP=etcd
+        - ETCD_PORT=49501
+        - APP_PORT=8081
+        - APP_ID=diameter-sensor
+        - APP_NAME=de-kit-sensor-manager
+        - APP_TITLE=Diameter Sensor
+        - APP_SHORTDESCRIPTION=Sensor Manager
+        - APP_DESCRIPTION=Sensor Manager
+        - APP_CATEGORY=domainApp
+        - APP_STATUS=online
+        - APP_ICON_URL=http://localhost:8081/images/inspectorp65x.png
+        - APP_USER_URL=http://localhost:8081/diameter
+        - APP_USER_DOC_URL=
+        - APP_USER_STATUS_URL=
+        - APP_DEV_DOC_URL=
+        - APP_DEV_SWAGGER_URL=
+        - APP_ADMIN_URL=
+        - APP_ADMIN_CONFIG_URL=
+        - APP_ADMIN_DOC_URL=
+        - APP_ADMIN_LOG_URL=
+        - APP_ADMIN_STATUS_URL=
+        - APP_API_ENTRYPOINT=
+        - APP_UPDATED_AT=2018-10-03T13:32:16.581Z
+        - APP_TYPE=domainApp
+
+  de-kit-sensor-area-registration:
+      image: de-kit-sidecar-registration:1.0
+      depends_on:
+        - "etcd"
+      environment:
+        - ETCD_IP=etcd
+        - ETCD_PORT=49501
+        - APP_PORT=8081
+        - APP_ID=area-safety-sensor
+        - APP_NAME=de-kit-sensor-manager
+        - APP_TITLE=Safety Area Sensor
+        - APP_SHORTDESCRIPTION=Sensor Manager
+        - APP_DESCRIPTION=Sensor Manager
+        - APP_CATEGORY=domainApp
+        - APP_STATUS=online
+        - APP_ICON_URL=http://localhost:8081/images/s3000.png
+        - APP_USER_URL=http://localhost:8081/s3000
+        - APP_USER_DOC_URL=
+        - APP_USER_STATUS_URL=
+        - APP_DEV_DOC_URL=
+        - APP_DEV_SWAGGER_URL=
+        - APP_ADMIN_URL=
+        - APP_ADMIN_CONFIG_URL=
+        - APP_ADMIN_DOC_URL=
+        - APP_ADMIN_LOG_URL=
+        - APP_ADMIN_STATUS_URL=
+        - APP_API_ENTRYPOINT=
+        - APP_UPDATED_AT=2018-10-03T13:32:16.581Z
+        - APP_TYPE=domainApp            
+
+  de-kit-sensor-barrier-registration:
+      image: de-kit-sidecar-registration:1.0
+      depends_on:
+        - "etcd"
+      environment:
+        - ETCD_IP=etcd
+        - ETCD_PORT=49501
+        - APP_PORT=8081
+        - APP_ID=barrier-safety-sensor
+        - APP_NAME=de-kit-sensor-manager
+        - APP_TITLE=Safety Barrier Sensor
+        - APP_SHORTDESCRIPTION=Sensor Manager
+        - APP_DESCRIPTION=Sensor Manager
+        - APP_CATEGORY=domainApp
+        - APP_STATUS=online
+        - APP_ICON_URL=http://localhost:8081/images/c4000advanced.png
+        - APP_USER_URL=http://localhost:8081/c4000advanced
+        - APP_USER_DOC_URL=
+        - APP_USER_STATUS_URL=
+        - APP_DEV_DOC_URL=
+        - APP_DEV_SWAGGER_URL=
+        - APP_ADMIN_URL=
+        - APP_ADMIN_CONFIG_URL=
+        - APP_ADMIN_DOC_URL=
+        - APP_ADMIN_LOG_URL=
+        - APP_ADMIN_STATUS_URL=
+        - APP_API_ENTRYPOINT=
+        - APP_UPDATED_AT=2018-10-03T13:32:16.581Z
+        - APP_TYPE=domainApp
+
+  de-kit-sensor-barrier-registration_2:
+      image: de-kit-sidecar-registration:1.0
+      depends_on:
+        - "etcd"
+      environment:
+        - ETCD_IP=etcd
+        - ETCD_PORT=49501
+        - APP_PORT=8081
+        - APP_ID=barrier-safety-sensor_2
+        - APP_NAME=de-kit-sensor-manager
+        - APP_TITLE=Safety Barrier Sensor
+        - APP_SHORTDESCRIPTION=Sensor Manager
+        - APP_DESCRIPTION=Sensor Manager
+        - APP_CATEGORY=domainApp
+        - APP_STATUS=online
+        - APP_ICON_URL=http://localhost:8081/images/c4000advanced.png
+        - APP_USER_URL=http://localhost:8081/c4000advanced
+        - APP_USER_DOC_URL=
+        - APP_USER_STATUS_URL=
+        - APP_DEV_DOC_URL=
+        - APP_DEV_SWAGGER_URL=
+        - APP_ADMIN_URL=
+        - APP_ADMIN_CONFIG_URL=
+        - APP_ADMIN_DOC_URL=
+        - APP_ADMIN_LOG_URL=
+        - APP_ADMIN_STATUS_URL=
+        - APP_API_ENTRYPOINT=
+        - APP_UPDATED_AT=2018-10-03T13:32:16.581Z
+        - APP_TYPE=domainApp  
+
+  de-kit-air-quality-registration:
+      image: de-kit-sidecar-registration:1.0
+      depends_on:
+        - "etcd"
+      environment:
+        - ETCD_IP=etcd
+        - ETCD_PORT=49501
+        - APP_PORT=8081
+        - APP_ID=air-quality-sensor_2
+        - APP_NAME=de-kit-sensor-manager
+        - APP_TITLE=Air Quality Sensor
+        - APP_SHORTDESCRIPTION=Sensor Manager
+        - APP_DESCRIPTION=Sensor Manager
+        - APP_CATEGORY=domainApp
+        - APP_STATUS=online
+        - APP_ICON_URL=http://localhost:8081/images/sb30.png
+        - APP_USER_URL=http://localhost:8081/sb30
+        - APP_USER_DOC_URL=
+        - APP_USER_STATUS_URL=
+        - APP_DEV_DOC_URL=
+        - APP_DEV_SWAGGER_URL=
+        - APP_ADMIN_URL=
+        - APP_ADMIN_CONFIG_URL=
+        - APP_ADMIN_DOC_URL=
+        - APP_ADMIN_LOG_URL=
+        - APP_ADMIN_STATUS_URL=
+        - APP_API_ENTRYPOINT=
+        - APP_UPDATED_AT=2018-10-03T13:32:16.581Z
+        - APP_TYPE=domainApp 
+
+  de-kit-wire-sensor-registration:
+      image: de-kit-sidecar-registration:1.0
+      depends_on:
+        - "etcd"
+      environment:
+        - ETCD_IP=etcd
+        - ETCD_PORT=49501
+        - APP_PORT=8081
+        - APP_ID=wire-sensor
+        - APP_NAME=de-kit-sensor-manager
+        - APP_TITLE=Wire Sensor
+        - APP_SHORTDESCRIPTION=Sensor Manager
+        - APP_DESCRIPTION=Sensor Manager
+        - APP_CATEGORY=domainApp
+        - APP_STATUS=online
+        - APP_ICON_URL=http://localhost:8081/images/inspectorp65x.png
+        - APP_USER_URL=http://localhost:8081/inspectorp65x
+        - APP_USER_DOC_URL=
+        - APP_USER_STATUS_URL=
+        - APP_DEV_DOC_URL=
+        - APP_DEV_SWAGGER_URL=
+        - APP_ADMIN_URL=
+        - APP_ADMIN_CONFIG_URL=
+        - APP_ADMIN_DOC_URL=
+        - APP_ADMIN_LOG_URL=
+        - APP_ADMIN_STATUS_URL=
+        - APP_API_ENTRYPOINT=
+        - APP_UPDATED_AT=2018-10-03T13:32:16.581Z
+        - APP_TYPE=domainApp     
+
+networks:
+   nginx-proxy:
+      external: true
+            
