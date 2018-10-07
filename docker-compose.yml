@@ -46,8 +46,8 @@ services:
         - APP_DESCRIPTION=Sensor Manager
         - APP_CATEGORY=domainApp
         - APP_STATUS=online
-        - APP_ICON_URL=${sensor-manager-url}/images/TBS-1DSGT1006NE.png
-        - APP_USER_URL=${sensor-manager-url}/TBS-1DSGT1006NE
+        - APP_ICON_URL=${SENSOR_MANAGER_URL}/images/TBS-1DSGT1006NE.png
+        - APP_USER_URL=${SENSOR_MANAGER_URL}/TBS-1DSGT1006NE
         - APP_USER_DOC_URL=
         - APP_USER_STATUS_URL=
         - APP_DEV_DOC_URL=
@@ -76,8 +76,8 @@ services:
         - APP_DESCRIPTION=Sensor Manager
         - APP_CATEGORY=domainApp
         - APP_STATUS=online
-        - APP_ICON_URL=${sensor-manager-url}/images/w150.png
-        - APP_USER_URL=${sensor-manager-url}/w150
+        - APP_ICON_URL=${SENSOR_MANAGER_URL}/images/w150.png
+        - APP_USER_URL=${SENSOR_MANAGER_URL}/w150
         - APP_USER_DOC_URL=
         - APP_USER_STATUS_URL=
         - APP_DEV_DOC_URL=
@@ -106,8 +106,8 @@ services:
         - APP_DESCRIPTION=Sensor Manager
         - APP_CATEGORY=domainApp
         - APP_STATUS=online
-        - APP_ICON_URL=${sensor-manager-url}/images/inspectorp65x.png
-        - APP_USER_URL=${sensor-manager-url}/diameter
+        - APP_ICON_URL=${SENSOR_MANAGER_URL}/images/inspectorp65x.png
+        - APP_USER_URL=${SENSOR_MANAGER_URL}/diameter
         - APP_USER_DOC_URL=
         - APP_USER_STATUS_URL=
         - APP_DEV_DOC_URL=
@@ -136,8 +136,8 @@ services:
         - APP_DESCRIPTION=Sensor Manager
         - APP_CATEGORY=domainApp
         - APP_STATUS=online
-        - APP_ICON_URL=${sensor-manager-url}/images/s3000.png
-        - APP_USER_URL=${sensor-manager-url}/s3000
+        - APP_ICON_URL=${SENSOR_MANAGER_URL}/images/s3000.png
+        - APP_USER_URL=${SENSOR_MANAGER_URL}/s3000
         - APP_USER_DOC_URL=
         - APP_USER_STATUS_URL=
         - APP_DEV_DOC_URL=
@@ -166,8 +166,8 @@ services:
         - APP_DESCRIPTION=Sensor Manager
         - APP_CATEGORY=domainApp
         - APP_STATUS=online
-        - APP_ICON_URL=${sensor-manager-url}/images/c4000advanced.png
-        - APP_USER_URL=${sensor-manager-url}/c4000advanced
+        - APP_ICON_URL=${SENSOR_MANAGER_URL}/images/c4000advanced.png
+        - APP_USER_URL=${SENSOR_MANAGER_URL}/c4000advanced
         - APP_USER_DOC_URL=
         - APP_USER_STATUS_URL=
         - APP_DEV_DOC_URL=
@@ -196,8 +196,8 @@ services:
         - APP_DESCRIPTION=Sensor Manager
         - APP_CATEGORY=domainApp
         - APP_STATUS=online
-        - APP_ICON_URL=${sensor-manager-url}/images/c4000advanced.png
-        - APP_USER_URL=${sensor-manager-url}/c4000advanced
+        - APP_ICON_URL=${SENSOR_MANAGER_URL}/images/c4000advanced.png
+        - APP_USER_URL=${SENSOR_MANAGER_URL}/c4000advanced
         - APP_USER_DOC_URL=
         - APP_USER_STATUS_URL=
         - APP_DEV_DOC_URL=
@@ -226,8 +226,8 @@ services:
         - APP_DESCRIPTION=Sensor Manager
         - APP_CATEGORY=domainApp
         - APP_STATUS=online
-        - APP_ICON_URL=${sensor-manager-url}/images/sb30.png
-        - APP_USER_URL=${sensor-manager-url}/sb30
+        - APP_ICON_URL=${SENSOR_MANAGER_URL}/images/sb30.png
+        - APP_USER_URL=${SENSOR_MANAGER_URL}/sb30
         - APP_USER_DOC_URL=
         - APP_USER_STATUS_URL=
         - APP_DEV_DOC_URL=
@@ -256,8 +256,8 @@ services:
         - APP_DESCRIPTION=Sensor Manager
         - APP_CATEGORY=domainApp
         - APP_STATUS=online
-        - APP_ICON_URL=${sensor-manager-url}/images/inspectorp65x.png
-        - APP_USER_URL=${sensor-manager-url}/inspectorp65x
+        - APP_ICON_URL=${SENSOR_MANAGER_URL}/images/inspectorp65x.png
+        - APP_USER_URL=${SENSOR_MANAGER_URL}/inspectorp65x
         - APP_USER_DOC_URL=
         - APP_USER_STATUS_URL=
         - APP_DEV_DOC_URL=
