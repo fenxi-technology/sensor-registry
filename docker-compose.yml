@@ -24,10 +24,12 @@ services:
     environment:
       - ETCD_CORS=*
       - VIRTUAL_HOST=sensor-registry.jit-systems.de # example jitcloud.de
+      - VIRTUAL_PORT=49501
       - LETSENCRYPT_HOST=sensor-registry.jit-systems.de # should be the same as VIRTUAL_HOST
       - LETSENCRYPT_EMAIL=frostyandy2k@yahoo.com # example webmaster@agentur-murr.de
     networks:
       - nginx-proxy
+      - default
 
   de-kit-sensor-temp1-registration:
       image: de-kit-sidecar-registration:1.0
