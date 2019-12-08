@@ -1,9 +1,22 @@
 version: '3'
 services:
 
+  image-registry:
+    build: ./Domain Software/image-registry/
+    ports:
+      - "3000:3000"
+    volumes:
+       - img-data:/app/uploads/img/
+    environment:
+        - VIRTUAL_HOST=image-registry.jit-systems.de # example jitcloud.de
+        - LETSENCRYPT_HOST=image-registry.jit-systems.de # should be the same as VIRTUAL_HOST
+        - LETSENCRYPT_EMAIL=frostyandy2k@yahoo.com # example webmaster@agentur-murr.de
+    networks:
+        - nginx-proxy
+
   etcdbrowser:
     image: spe-app-registry-etcd-browser
-    build: ./Platform Sidecars/etcd-browser/
+    build: ./Domain Software/etcd-browser/
     ports:
       - "49502:49502"
     environment:
@@ -270,6 +283,9 @@ services:
         - APP_API_ENTRYPOINT=
         - APP_UPDATED_AT=2018-10-03T13:32:16.581Z
         - APP_TYPE=domainApp     
+
+volumes:
+  img-data:
 
 networks:
    nginx-proxy:

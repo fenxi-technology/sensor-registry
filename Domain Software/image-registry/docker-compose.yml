@@ -1,0 +1,13 @@
+version: "3.4"
+
+services:
+
+  image-registry:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+       - img-data:/app/uploads/img/
+
+volumes:
+  img-data:

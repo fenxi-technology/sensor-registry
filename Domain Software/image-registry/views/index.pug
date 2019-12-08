@@ -4,4 +4,16 @@ block content
   h1= title
   p Welcome to #{title}
 
+  h2 Method 1 - Express File Upload
+  form(method='POST' action='/upload' enctype='multipart/form-data')
+    div
+      label Select your profile picture:
+      input(type='file' name='sampleFile')
+    div
+      input(type='submit' name='btn_upload_profile_pic' value='Upload')
+  |
+  hr
+  |
+  h2 Method 2 - Dropzone JS
+  form#my-awesome-dropzone.dropzone(action='/upload')
 

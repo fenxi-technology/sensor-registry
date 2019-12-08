@@ -7,8 +7,42 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var bodyParser = require('body-parser');
+const fileUpload = require('express-fileupload');
+
+var serveIndex = require('serve-index');
 
 var app = express();
+app.use(fileUpload());
+
+app.get('/ping', function(req, res) {
+  res.send('pong');
+});
+
+app.post('/upload', function(req, res) {
+  let sampleFile;
+  let uploadPath;
+
+  if (!req.files || Object.keys(req.files).length === 0) {
+    res.status(400).send('No files were uploaded.');
+    return;
+  }
+
+  console.log('req.files >>>', req.files); // eslint-disable-line
+
+  sampleFile = req.files.sampleFile;
+
+  uploadPath = __dirname + '/uploads/img/' + sampleFile.name;
+  webPath = '/uploads/img/' + sampleFile.name;
+
+  sampleFile.mv(uploadPath, function(err) {
+    if (err) {
+      return res.status(500).send(err);
+    }
+
+    res.send(`You have uploaded this image to <server_url>${webPath}: <hr/><img src="${webPath}" width="500"><hr /><a href="./">Upload another image</a>`);
+  });
+});
+
 
 // app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(bodyParser.json());
@@ -28,6 +62,11 @@ app.use(logger('dev'));
 //app.use(express.json());
 //app.use(express.urlencoded({ extended: false }));
 //app.use(cookieParser());
+
+// https://github.com/expressjs/serve-index
+app.use('/uploads', express.static('uploads'), serveIndex('uploads', {'icons': true}))
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
