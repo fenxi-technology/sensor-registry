@@ -45,8 +45,14 @@ app.post('/upload', function (req, res) {
     if (err) {
       return res.status(500).send(err);
     }
-
-    res.send(`You have uploaded this image to <server_url>${webPath}: <hr/><img src="${webPath}" width="500"><hr /><a href="./">Upload another image</a>`);
+    var obj = {
+      code: 200,
+      summary: "success",
+      data: webPath,
+      //sql返回的数据
+  }
+   // res.send(`You have uploaded this image to <server_url>${webPath}: <hr/><img src="${webPath}" width="500"><hr /><a href="./">Upload another image</a>`);
+  res.send(obj);
   });
 });
 
